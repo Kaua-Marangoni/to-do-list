@@ -56,7 +56,7 @@ function showTasks() {
     if (listArr.length == 0) {
         paragraphNumb.innerHTML = "Você não tem nenhuma <br> tarefa pendente!"
     } else if (listArr.length == 1) {
-        paragraphNumb.innerHTML = `Você tem ${listArr.length} tarefa pendentes!`
+        paragraphNumb.innerHTML = `Você tem ${listArr.length} tarefa <br> pendente!`
     } else {
         paragraphNumb.innerHTML = `Você tem ${listArr.length} tarefas pendentes!` //passing the length value in pendingNumb
     }
