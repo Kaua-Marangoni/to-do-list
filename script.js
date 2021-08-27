@@ -3,6 +3,15 @@ const addBtn = document.querySelector(".inputField button")
 const todoList = document.querySelector(".todoList")
 const deleteAllBtn = document.querySelector(".footer button")
 
+if (window.matchMedia("(max-width: 249px)").matches) {
+    inputBox.setAttribute("maxlength", "20");
+}
+
+if (window.matchMedia("(max-width: 290px)").matches) {
+    inputBox.setAttribute("placeholder", "Digite uma tarefa");
+    inputBox.style.paddingLeft = "5px"
+}
+
 inputBox.onkeyup = () => {
     let userData = inputBox.value // getting user entered
 
