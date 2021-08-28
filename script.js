@@ -5,7 +5,6 @@ const closeSidenav = document.querySelector("span.close-sidenav")
 const headerH1 = document.querySelector(".wrapper header h1")
 
 openSidenav.onclick = () => {
-    // sidenav.style.width = "150px"
     sidenav.style.right = "25px"
     mainContent.style.marginRight = "-50px"
 }
@@ -28,6 +27,12 @@ const body = document.querySelector("body")
 
 const themeBlue = document.querySelector(".wrapper .theme-blue")
 const themePurple = document.querySelector(".wrapper .theme-purple")
+const themeGreen = document.querySelector(".wrapper .theme-green")
+const themeYellow = document.querySelector(".wrapper .theme-yellow")
+const themeRed = document.querySelector(".wrapper .theme-red")
+const themeOrange = document.querySelector(".wrapper .theme-orange")
+const themeGreen2 = document.querySelector(".wrapper .theme-green-2")
+const themePink = document.querySelector(".wrapper .theme-pink")
 
 themeBlue.onclick = () => {
     inputBox.style.border = "1px solid #2274A5"
@@ -48,6 +53,72 @@ themePurple.onclick = () => {
 
     if (window.matchMedia("(max-width: 445px)").matches) {
         wrapper.style.border = "5px solid #8E49E8"
+    }
+}
+
+themeGreen.onclick = () => {
+    inputBox.style.border = "1px solid #1dca5f"
+    addBtn.style.backgroundColor = "#1dca5f"
+    deleteAllBtn.style.backgroundColor = "#1dca5f"
+    body.style.background = "linear-gradient(to bottom, #68ea6e 0%, #1dca5f 100%)"
+
+    if (window.matchMedia("(max-width: 445px)").matches) {
+        wrapper.style.border = "5px solid #1dca5f"
+    }
+}
+
+themeYellow.onclick = () => {
+    inputBox.style.border = "1px solid #FEC000"
+    addBtn.style.backgroundColor = "#FEC000"
+    deleteAllBtn.style.backgroundColor = "#FEC000"
+    body.style.background = "linear-gradient(to bottom, #eac168 0%, #bd910f 100%)"
+
+    if (window.matchMedia("(max-width: 445px)").matches) {
+        wrapper.style.border = "5px solid #FEC000"
+    }
+}
+
+themeRed.onclick = () => {
+    inputBox.style.border = "1px solid #db3300"
+    addBtn.style.backgroundColor = "#db3300"
+    deleteAllBtn.style.backgroundColor = "#db3300"
+    body.style.background = "linear-gradient(to bottom, #ea9c68 0%, #db3300 100%)"
+
+    if (window.matchMedia("(max-width: 445px)").matches) {
+        wrapper.style.border = "5px solid #db3300"
+    }
+}
+
+themeOrange.onclick = () => {
+    inputBox.style.border = "1px solid #df730d"
+    addBtn.style.backgroundColor = "#df730d"
+    deleteAllBtn.style.backgroundColor = "#df730d"
+    body.style.background = "linear-gradient(to bottom, #dfc966 0%, #df730d 100%)"
+
+    if (window.matchMedia("(max-width: 445px)").matches) {
+        wrapper.style.border = "5px solid #df730d"
+    }
+}
+
+themeGreen2.onclick = () => {
+    inputBox.style.border = "1px solid #218c74"
+    addBtn.style.backgroundColor = "#218c74"
+    deleteAllBtn.style.backgroundColor = "#218c74"
+    body.style.background = "linear-gradient(to bottom, #68EACC 0%, #218c74 100%)"
+
+    if (window.matchMedia("(max-width: 445px)").matches) {
+        wrapper.style.border = "5px solid #218c74"
+    }
+}
+
+themePink.onclick = () => {
+    inputBox.style.border = "1px solid #df0dc3"
+    addBtn.style.backgroundColor = "#df0dc3"
+    deleteAllBtn.style.backgroundColor = "#df0dc3"
+    body.style.background = "linear-gradient(to bottom, #e2dfe6 0%, #df0dc3 100%)"
+
+    if (window.matchMedia("(max-width: 445px)").matches) {
+        wrapper.style.border = "5px solid #df0dc3"
     }
 }
 

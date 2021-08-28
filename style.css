@@ -31,7 +31,7 @@ body {
 
 
 nav.sidenav {
-    width: 150px;
+    width: 155px;
     position: absolute;
     right: -185px;
     z-index: 1;
@@ -90,7 +90,6 @@ span.open-sidenav {
     cursor: pointer;
 }
 
-
 .wrapper header {
     display: flex;
     align-items: center;
@@ -101,6 +100,10 @@ span.open-sidenav {
     margin: 0 0 5px 10px;
     width: 23px;
     cursor: pointer;
+}
+
+.wrapper .sidenav img:hover {
+    border: 1px solid #000;
 }
 
 .wrapper header h1 {
