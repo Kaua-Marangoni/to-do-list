@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap" rel="stylesheet">
@@ -16,10 +17,24 @@
 <body>
     <div class="container">
         <div class="wrapper">
-            <header>Lista de Tarefas</header>
+
+            <nav class="sidenav">
+                <span class="close-sidenav">&times;</span>
+                <h1 class="contatos">Tema</h1>
+                <img class="theme-blue" src="./assets/image-blue.ico" alt="Imagem para alterar tema para azul">
+                <img class="theme-purple" src="./assets/image-purple.ico" alt="Imagem para alterar tema para roxo">
+            </nav>
+
+            <main class="main-content">
+                <span class="open-sidenav">&#9776;</span>
+            </main>
+
+            <header>
+                <h1>Lista de Tarefas</h1>
+            </header>
 
             <div class="inputField">
-                <input type="text" placeholder="Adicione sua nova tarefa" maxlength="25">
+                <input type="text" placeholder="Digite sua nova tarefa" maxlength="25">
                 <button><i class="fas fa-plus"></i></button>
             </div>
 
