@@ -147,7 +147,7 @@ showTasks()
 addBtn.onclick = () => {
     let userData = inputBox.value //getting user entered
 
-    let getLocalStorage = localStorage.getItem("Nova Tarefa") //getting localstorage
+    let getLocalStorage = localStorage.getItem("to-do:newTask") //getting localstorage
 
     if (getLocalStorage == null) { //if localstorage is null
         listArr = [] //creating blank array
@@ -157,7 +157,7 @@ addBtn.onclick = () => {
 
     listArr.push(userData) //pushing or adding user data
 
-    localStorage.setItem("Nova Tarefa", JSON.stringify(listArr)) //tranforming js object into a json string
+    localStorage.setItem("to-do:newTask", JSON.stringify(listArr)) //tranforming js object into a json string
     showTasks() //calling showtasks function
 
     addBtn.classList.remove("active")
@@ -165,7 +165,7 @@ addBtn.onclick = () => {
 
 //function to add task list inside ul
 function showTasks() {
-    let getLocalStorage = localStorage.getItem("Nova Tarefa") //getting localstorage
+    let getLocalStorage = localStorage.getItem("to-do:newTask") //getting localstorage
 
     if (getLocalStorage == null) { //if localstorage is null
         listArr = [] //creating blank array
@@ -209,14 +209,14 @@ function showTasks() {
 
 //delete task function
 function deleteTask(index) {
-    let getLocalStorage = localStorage.getItem("Nova Tarefa")
+    let getLocalStorage = localStorage.getItem("to-do:newTask")
 
     listArr = JSON.parse(getLocalStorage)
 
     listArr.splice(index, 1) //delete the particular index li
 
     //after remove the li again update the localstorage
-    localStorage.setItem("Nova Tarefa", JSON.stringify(listArr))
+    localStorage.setItem("to-do:newTask", JSON.stringify(listArr))
 
     showTasks()
 }
@@ -226,7 +226,7 @@ deleteAllBtn.onclick = () => {
     listArr = [] //empty an array
 
     //after delete all tasks again update the localstorage
-    localStorage.setItem("Nova Tarefa", JSON.stringify(listArr))
+    localStorage.setItem("to-do:newTask", JSON.stringify(listArr))
 
     showTasks()
 }
