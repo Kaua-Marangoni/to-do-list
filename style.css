@@ -151,10 +151,21 @@ span.open-sidenav {
 .wrapper .todoList {
     max-height: 250px;
     overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.todoList li {
-    overflow: hidden;
+.button-sort {
+    font-size: 20px;
+    width: 40px;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.todoList .item-task {
     list-style: none;
     height: 45px;
     width: 100%;
@@ -165,12 +176,13 @@ span.open-sidenav {
     border-bottom: 1px solid #8b8b8b;
     margin-bottom: 8px;
     padding: 0 15px;
+    transition: all .2s ease;
     cursor: default;
 }
 
-.todoList li span {
+.todoList .item-task .icon-trash {
     position: absolute;
-    right: -45px;
+    right: -46px;
     color: #fff;
     width: 45px;
     text-align: center;
@@ -180,8 +192,36 @@ span.open-sidenav {
     transition: all .2s ease;
 }
 
-.todoList li:hover span {
+.todoList .item-task:hover .icon-trash {
     right: 0;
+}
+
+.checked-button{
+    position: absolute;
+    color: #fff;
+    width: 45px;
+    background: #686de0;
+    border-radius: 3px 0 0 3px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -45px;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.todoList .item-task:hover .checked-button {
+    left: 0;
+}
+
+.todoList .item-task:hover {
+    padding-left: 50px;
+}
+
+.completed {
+    background: #d4f88d !important;
+    text-decoration: line-through;
 }
 
 .wrapper p.helpMobile {
@@ -282,7 +322,7 @@ span.open-sidenav {
 }
 
 @media (max-width: 249px) {
-    .todoList li span {
+    .todoList .item-task span {
         width: 35px;
         right: 0;
     }

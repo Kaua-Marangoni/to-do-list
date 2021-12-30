@@ -27,7 +27,8 @@
                 <img class="theme-yellow" src="./assets/image-yellow.ico" alt="Imagem para alterar tema para amarelo">
                 <img class="theme-red" src="./assets/image-red.ico" alt="Imagem para alterar tema para vermelho">
                 <img class="theme-orange" src="./assets/image-orange.ico" alt="Imagem para alterar tema para laranja">
-                <img class="theme-green-2" src="./assets/image-green-2.ico" alt="Imagem para alterar tema para verde escuro">
+                <img class="theme-green-2" src="./assets/image-green-2.ico"
+                    alt="Imagem para alterar tema para verde escuro">
                 <img class="theme-pink" src="./assets/image-pink.ico" alt="Imagem para alterar tema para rosa">
             </nav>
 
@@ -40,15 +41,17 @@
             </header>
 
             <div class="inputField">
-                <input type="text" placeholder="Digite sua nova tarefa" maxlength="25">
+                <input type="text" placeholder="Digite sua nova tarefa" maxlength="23">
                 <button><i class="fas fa-plus"></i></button>
             </div>
+
+            <button class="button-sort" onclick="sortBy()"><i class="fas fa-sort"></i></button>
 
             <ul class="todoList">
                 <!-- Data comes from localstorage -->
             </ul>
 
-            <p class="helpMobile">* Para deletar uma tarefa, aperte em cima e depois no ícone da lixeira.</p>
+            <p class="helpMobile">* Para deletar ou concluir uma tarefa, aperte em cima e depois no ícone correspondente.</p>
 
             <div class="footer">
                 <span class="paragraphNumb"></span>
@@ -58,5 +61,6 @@
     </div>
 </body>
 <script src="script.js"></script>
+<script src="https://kit.fontawesome.com/f47bef615d.js" crossorigin="anonymous"></script>
 
 </html>

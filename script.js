@@ -1,6 +1,6 @@
-const sidenav = document.querySelector( "nav.sidenav")
-const mainContent = document.querySelector( "main.main-content") 
-const openSidenav = document.querySelector("span.open-sidenav") 
+const sidenav = document.querySelector("nav.sidenav")
+const mainContent = document.querySelector("main.main-content")
+const openSidenav = document.querySelector("span.open-sidenav")
 const closeSidenav = document.querySelector("span.close-sidenav")
 const headerH1 = document.querySelector(".wrapper header h1")
 
@@ -8,7 +8,7 @@ openSidenav.onclick = () => {
     sidenav.style.right = "25px"
     mainContent.style.marginRight = "-50px"
 }
-    
+
 closeSidenav.onclick = () => {
     sidenav.style.right = "-185px"
     mainContent.style.marginRight = "0"
@@ -17,13 +17,6 @@ closeSidenav.onclick = () => {
 if (window.matchMedia("(max-width: 335px)").matches) {
     headerH1.innerHTML = `Lista de <br> Tarefas`
 }
-
-const inputBox = document.querySelector(".inputField input")
-const addBtn = document.querySelector(".inputField button")
-const todoList = document.querySelector(".todoList")
-const deleteAllBtn = document.querySelector(".footer button")
-const wrapper = document.querySelector(".wrapper")
-const body = document.querySelector("body")
 
 const themeBlue = document.querySelector(".wrapper .theme-blue")
 const themePurple = document.querySelector(".wrapper .theme-purple")
@@ -122,6 +115,17 @@ themePink.onclick = () => {
     }
 }
 
+const inputBox = document.querySelector(".inputField input")
+const addBtn = document.querySelector(".inputField button")
+const todoList = document.querySelector(".todoList")
+const deleteAllBtn = document.querySelector(".footer button")
+const wrapper = document.querySelector(".wrapper")
+const body = document.querySelector("body")
+
+if (window.matchMedia("(max-width: 390px)").matches) {
+    inputBox.setAttribute("maxlength", "19")
+}
+
 if (window.matchMedia("(max-width: 249px)").matches) {
     inputBox.setAttribute("maxlength", "20")
 }
@@ -143,6 +147,14 @@ inputBox.onkeyup = () => {
 
 showTasks()
 
+function sortBy() {
+    if(todoList.style.flexDirection === "column") {
+        todoList.style.flexDirection = "column-reverse"
+    } else {
+        todoList.style.flexDirection = "column"
+    }
+}
+
 // if user click on the add button
 addBtn.onclick = () => {
     let userData = inputBox.value //getting user entered
@@ -155,7 +167,10 @@ addBtn.onclick = () => {
         listArr = JSON.parse(getLocalStorage) //tranforming json string into a js object
     }
 
-    listArr.push(userData) //pushing or adding user data
+    listArr.push({
+        task: userData,
+        completed: false
+    }) //pushing or adding user data
 
     localStorage.setItem("to-do:newTask", JSON.stringify(listArr)) //tranforming js object into a json string
     showTasks() //calling showtasks function
@@ -182,11 +197,11 @@ function showTasks() {
     }
 
     if (listArr.length == 0) {
-        paragraphNumb.innerHTML = "Você não tem nenhuma <br> tarefa pendente!"
+        paragraphNumb.innerHTML = "Você não possui nenhuma <br> tarefa!"
     } else if (listArr.length == 1) {
-        paragraphNumb.innerHTML = `Você tem ${listArr.length} tarefa <br> pendente!`
+        paragraphNumb.innerHTML = `Você possui ${listArr.length} tarefa!`
     } else {
-        paragraphNumb.innerHTML = `Você tem ${listArr.length} tarefas pendentes!` //passing the length value in pendingNumb
+        paragraphNumb.innerHTML = `Você possui ${listArr.length} tarefas!` //passing the length value in pendingNumb
     }
 
     const helpMobile = document.querySelector(".wrapper .helpMobile")
@@ -199,7 +214,15 @@ function showTasks() {
 
     let newLiTag = ""
     listArr.forEach((element, index) => {
-        newLiTag += `<li>${element} <span onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`
+        newLiTag += `<li class="item-task ${element.completed === true && "completed"}">
+        <span class="checked-button" onclick="taskCompleted(${index})">
+            <i class="${element.completed === true ? "fas fa-check-square" : "far fa-square"}"></i>
+        </span>
+        ${element.task}
+        <span class="icon-trash" onclick="deleteTask(${index})">
+            <i class="fas fa-trash"></i>
+        </span>
+        </li>`
     })
 
     todoList.innerHTML = newLiTag //adding new li tag inside ul tag
@@ -218,6 +241,12 @@ function deleteTask(index) {
     //after remove the li again update the localstorage
     localStorage.setItem("to-do:newTask", JSON.stringify(listArr))
 
+    showTasks()
+}
+
+function taskCompleted(index) {
+    listArr[index].completed = !listArr[index].completed
+    localStorage.setItem("to-do:newTask", JSON.stringify(listArr))
     showTasks()
 }
 
